@@ -14,13 +14,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
     public class MainActivity extends AppCompatActivity {
-        //dictonary for latin > english word definitions
-        HashMap<String, String> dict = new HashMap<String, String>();
+        //dictionary for latin > english word definitions
+        HashMap<String, String> dict = new HashMap<>();
         EditText edInput;
         Button btnLook;
     @Override
@@ -61,8 +59,10 @@ import java.util.HashMap;
 
                     //adding first index as key (latin word), adding second index as value (english definition)
                     //trim space ending of latin word (decided after debugging)
-                    //substring definition of unnecessary symbols (decided after debugging)
-                    dict.put(def[0].trim(), def[1].substring(3, def[1].length()-2));
+                    //replace unnecessary symbols (decided after debugging)
+                    String definition =  def[1].replaceAll("[\\.\\?\\+\\=\"]","");
+                    dict.put(def[0].trim(), definition);
+                    System.out.println(def[1]);
                 }
 
                 //set up intent to send information to the new activity readSpell (translation screen)
