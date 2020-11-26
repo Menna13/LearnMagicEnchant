@@ -29,7 +29,7 @@ public class readSpell extends AppCompatActivity {
 
         //check if the inout word is in dictionary. If so, print the value in the TextView
         if (dict.containsKey(spell)){
-            tvMeaning.setText("You Spell can give you "+ dict.get(spell) + " relating powers!");
+            tvMeaning.setText("Your Spell can give you "+ dict.get(spell) + " relating powers!");
         }
 
         //check if input word is empty string, if so, print a message in the TextView
